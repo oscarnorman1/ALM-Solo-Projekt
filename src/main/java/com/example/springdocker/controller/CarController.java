@@ -13,6 +13,11 @@ public class CarController {
 
     private final CarService carService;
 
+    @GetMapping("/")
+    public String Welcome() {
+        return "Hello!";
+    }
+
     @GetMapping("/allCars")
     public List<Car> getCars() {
         return carService.getAllCars();
@@ -24,8 +29,23 @@ public class CarController {
     }
 
     @PostMapping("/addCar")
-    public void addCar(@RequestBody Car car) {
-        carService.saveNewCar(car);
+    public Car addCar(@RequestBody Car car) {
+        return carService.saveNewCar(car);
+    }
+
+    @GetMapping("/findCarsByName")
+    public List<Car> findCarsByName(@RequestParam String name) {
+        return carService.getAllCarsByName(name);
+    }
+
+    @GetMapping("/findCarById")
+    public Car findCarById(@RequestParam String id) {
+        return carService.findCarById(id);
+    }
+
+    @GetMapping("/findAllCarsByYear")
+    public List<Car> findCarsByYear(@RequestParam String year) {
+        return carService.findAllCarsByYear(year);
     }
 
 }

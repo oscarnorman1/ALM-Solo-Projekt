@@ -12,5 +12,7 @@ import java.util.List;
 public interface CarRepository extends MongoRepository<Car, String> {
 
     List<Car> findCarByColor(String color);
-
+    List<Car> findAllByName(String name);
+    Car findCarById(String id);
+    List<Car> findAllByYear(String year);
 }
