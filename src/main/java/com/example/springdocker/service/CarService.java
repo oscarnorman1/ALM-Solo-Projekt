@@ -30,7 +30,7 @@ public class CarService {
     }
 
     public List<Car> getCarsByColor(String color) {
-        return carRepository.findCarByColor(color);
+        return carRepository.findAllByColor(color);
     }
 
     public Car saveNewCar(Car car) {

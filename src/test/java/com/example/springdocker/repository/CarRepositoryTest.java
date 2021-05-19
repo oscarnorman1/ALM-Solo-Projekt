@@ -34,8 +34,8 @@ class CarRepositoryTest {
 
     @Test
     void findCarByColorTest() {
-        Car expected = carRepository.findCarByColor("Yellow").get(0);
-        Car unExpected = carRepository.findCarByColor("Red").get(0);
+        Car expected = carRepository.findAllByColor("Yellow").get(0);
+        Car unExpected = carRepository.findAllByColor("Red").get(0);
 
         assertEquals(expected.getColor(), "Yellow");
         assertNotEquals(expected.getColor(), unExpected.getColor());
