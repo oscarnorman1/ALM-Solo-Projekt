@@ -44,15 +44,23 @@ class CarServiceTest {
 
     @Test
     void getAllCarsByNameTest() {
+        carService.getAllCarsByName(anyString());
 
+        verify(mockRepository).findAllByName(anyString());
     }
 
     @Test
     void findAllCarsByYearTest() {
+        carService.findAllCarsByYear(anyString());
+
+        verify(mockRepository).findAllByYear(anyString());
     }
 
     @Test
     void findCarByIdTest() {
+        carService.findCarById(anyString());
+
+        verify(mockRepository).findCarById(anyString());
     }
 
     @Test
@@ -92,4 +100,5 @@ class CarServiceTest {
         assertEquals(expectedYear, actual.getYear());
         assertEquals(expectedColor, actual.getColor());
     }
+
 }
