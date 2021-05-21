@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+
+  java-app:
+    image: java-prod-app
+    ports:
+      - 8082:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_HOST: mongo
+      DB_PORT: 27017
+      DB_NAME: prod-car-db
+    depends_on:
+      - mongo
