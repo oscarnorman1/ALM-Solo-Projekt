@@ -29,10 +29,15 @@ services:
 
   java-app:
     #build: . ANVÄND INTE DETTA
-    image: car-app-image
+    image: car-app-image-testing
     ports:
       - 8085:8080
-    #environment:
-      #MONGO_DB: mongo
+    environment:
+      - spring.data.mongodb.host=mongo
+      - spring.data.mongodb.port=27017
+      - spring.data.mongodb.database=car-db
+      - spring.data.mongodb.username=root
+      - spring.data.mongodb.password=password
+      - spring.data.mongodb.authentication-database=admin
     depends_on:
       - mongo
