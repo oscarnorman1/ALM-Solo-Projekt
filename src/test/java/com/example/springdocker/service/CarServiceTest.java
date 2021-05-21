@@ -88,7 +88,7 @@ class CarServiceTest {
 
         Car car = new Car(expectedId, expectedName, expectedYear, expectedColor);
 
-        when(mockRepository.save(isA(Car.class))).thenReturn(new Car(expectedId, expectedName, expectedYear, expectedColor));
+        when(mockRepository.save(isA(Car.class))).thenReturn(car);
 
         //Testing methods
         Car actual = carService.saveNewCar(car);
