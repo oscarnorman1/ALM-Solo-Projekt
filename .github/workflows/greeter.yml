@@ -1,16 +1,21 @@
+
 name: Greeter
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
+      - development
+  pull_request:
 
 jobs:
   greet:
     runs-on: ubuntu-latest
 
     steps:
-     - name: step 1, greet
-       run: echo Hello world!
+      - name: step 1, Greet
+        run: echo Hello team!
 
-     - name: step 2
-       run: echo Bye bye!
-
+      - name: step 2
+        run: echo bye bye
